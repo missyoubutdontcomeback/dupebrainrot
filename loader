@@ -1,1 +1,74 @@
-loadstring(game:HttpGet("http://nyee.online/loader.lua"))()
+--// Local Hub - Old Version Warning
+
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+local gui = Instance.new("ScreenGui")
+gui.Name = "LocalHub_OldVersion"
+gui.ResetOnSpawn = false
+gui.Parent = player:WaitForChild("PlayerGui")
+
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(0, 550, 0, 300)
+frame.Position = UDim2.new(0.5, -275, 0.5, -150)
+frame.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+frame.BorderSizePixel = 0
+frame.Parent = gui
+
+Instance.new("UICorner", frame).CornerRadius = UDim.new(0, 14)
+
+local stroke = Instance.new("UIStroke")
+stroke.Color = Color3.fromRGB(255, 0, 0)
+stroke.Thickness = 2
+stroke.Parent = frame
+
+local title = Instance.new("TextLabel")
+title.Size = UDim2.new(1, 0, 0, 70)
+title.BackgroundTransparency = 1
+title.Text = "⚠ THIS SCRIPT OLDVERSION ⚠"
+title.TextColor3 = Color3.fromRGB(255, 70, 70)
+title.Font = Enum.Font.GothamBlack
+title.TextScaled = true
+title.Parent = frame
+
+local subtitle = Instance.new("TextLabel")
+subtitle.Size = UDim2.new(1, -30, 0, 40)
+subtitle.Position = UDim2.new(0, 15, 0, 70)
+subtitle.BackgroundTransparency = 1
+subtitle.Text = "This is Local Hub"
+subtitle.TextColor3 = Color3.fromRGB(255,255,255)
+subtitle.Font = Enum.Font.GothamBold
+subtitle.TextScaled = true
+subtitle.Parent = frame
+
+local desc = Instance.new("TextLabel")
+desc.Size = UDim2.new(1, -40, 0, 100)
+desc.Position = UDim2.new(0, 20, 0, 120)
+desc.BackgroundTransparency = 1
+desc.Text = "Your script is outdated.\nJoin the discord for latest update.\n\nStop using cracked version broke ass 💀"
+desc.TextColor3 = Color3.fromRGB(220, 220, 220)
+desc.Font = Enum.Font.Gotham
+desc.TextWrapped = true
+desc.TextScaled = true
+desc.Parent = frame
+
+local button = Instance.new("TextButton")
+button.Size = UDim2.new(0, 340, 0, 55)
+button.Position = UDim2.new(0.5, -170, 1, -75)
+button.BackgroundColor3 = Color3.fromRGB(88, 101, 242)
+button.Text = "Copy Discord Link"
+button.TextColor3 = Color3.fromRGB(255,255,255)
+button.Font = Enum.Font.GothamBold
+button.TextScaled = true
+button.Parent = frame
+
+Instance.new("UICorner", button).CornerRadius = UDim.new(0, 10)
+
+button.MouseButton1Click:Connect(function()
+    if setclipboard then
+        setclipboard("https://discord.gg/RYzWQcV3sT")
+        button.Text = "Copied Discord Invite!"
+    else
+        button.Text = "Clipboard not supported"
+    end
+end)
